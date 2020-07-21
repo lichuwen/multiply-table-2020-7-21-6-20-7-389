@@ -21,13 +21,19 @@ function getMultipulTable(start,end){
   var mulTable = "";
   for(var i=start; i<=end; i++){
     for(var j=start; j<=i; j++){
-      mulTable += j + '*' + i + '=' + j * i + '\t';
+      mulTable += getExpression(j,i) + '\t';
     }
     mulTable = mulTable.substring(0,mulTable.length-1);
     if(i != end)
       mulTable += '\n';
   }
   return mulTable;
+}
+
+function getExpression(Multiplicand,multiplier){
+  var oneLine = "";
+  oneLine += Multiplicand + '*' + multiplier + '=' + Multiplicand * multiplier;
+  return oneLine;
 }
 
 module.exports = {
